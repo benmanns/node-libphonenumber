@@ -100,6 +100,11 @@ app.post('/bulk', function(req, response) {
   response.send(j);
 });
 
+app.error(function(err, req, res, next) {
+  res.contentType('application/json');
+  res.send({ error: err }, 500);
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);
