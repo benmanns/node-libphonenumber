@@ -75,6 +75,7 @@ app.get('/', function(req, response) {
   var h = get_phone_info(number, country_code);
 
   var j = goog.json.serialize(h);
+  response.contentType('application/json');
   response.send(j);
 });
 
@@ -95,6 +96,7 @@ app.post('/bulk', function(req, response) {
   }
 
   var j = goog.json.serialize(a);
+  response.contentType('application/json');
   response.send(j);
 });
 
